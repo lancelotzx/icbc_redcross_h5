@@ -1,9 +1,9 @@
 <!-- 首页 -->
 <template>
 	<view>
-		<cu-custom bgColor="bg-white" :isBack="false">
+		<cu-custom bgColor="bg-white" bgImage="../../static/me/logo-1.png" :isBack="false">
 			<!-- <block slot="backText">返回</block> -->
-			<block slot="content">首页</block>
+			<block slot="content"></block>
 		</cu-custom>
 		
 		<add-tip :tip="tip" :duration="duration"/>
@@ -109,7 +109,7 @@
 		},
 		data() {
 			return {
-				tip:"点击「添加小程序」，下次访问更便捷",
+				tip:"欢迎访问",
 				duration:1,
 				
 				scrollTop: 0,

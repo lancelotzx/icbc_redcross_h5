@@ -31,7 +31,7 @@
 				var bgImage = this.bgImage;
 				var style = `height:${CustomBar}px;padding-top:${StatusBar}px;`;
 				if (this.bgImage) {
-					style = `${style}background-image:url(${bgImage});`;
+					style = `${style}background-image:url(${bgImage}); height: 56px`;
 				}
 				return style
 			}
