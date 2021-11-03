@@ -24,7 +24,7 @@
 		</view>
 		
 		<!-- 导航栏 -->
-		<view class="cu-list grid solids-bottom col-4 no-border">
+		<!-- <view class="cu-list grid solids-bottom col-4 no-border">
 			<view class="cu-item" v-for="(item,index) in categories" :key="index" :style="[{animation: 'show ' + ((index+1)*0.2+1) + 's 1'}]"
 			 @click="goCategorieslist" :data-mid="item.mid">
 				<view :class="['cuIcon-' + item.cuIcon,'text-' + item.color]">
@@ -34,21 +34,29 @@
 				</view>
 				<text>{{item.name}}</text>
 			</view>
-		</view>
+		</view> -->
+		<u-notice-bar mode="horizontal" type="primary" :list="listBar"></u-notice-bar>
+		
 		<view class="cu-bar bg-white margin-top-xs">
 			<view class="action sub-title">
-				<text class="text-xl text-bold text-blue text-shadow">热门视频</text>
+				<text class="text-xl text-bold text-red text-shadow">网上办事</text>
 				<text class="text-ABC text-blue">curriculum</text>
 			</view>
 			<view class="action">
 				<text class="text-lg text-grey text-shadow">更多</text>
 			</view>
 		</view>
+		<view class='nav-list margin-top'>
+			<navigator open-type="navigate" hover-class='none' :url="'../' + item.url" :class="'nav-li bg-index' + (index+1)"
+			 v-for="(item, index) in Template" :key="index">
+				<view class="nav-name">{{item.name}}</view>
+			</navigator>
+		</view>
 
-		<view class="skill-sequence-panel-content-wrapper">
-			<!--左边虚化-->
+		<!-- <view class="skill-sequence-panel-content-wrapper">
+			<!--左边虚化--
 			<view class="hide-content-box hide-content-box-left"></view>
-			<!--右边虚化-->
+			<!--右边虚化--
 			<view class="hide-content-box hide-content-box-right"></view>
 			<scroll-view scroll-x="true" class="kite-classify-scroll">
 				<view class="kite-classify-cell shadow" v-for="(item, index) in curriculum" :key="index">
@@ -59,7 +67,7 @@
 					<view @click="goVideo" class="nav-btn shadow" :class="'bg-index' + (index+1)">立即学习</view>
 				</view>
 			</scroll-view>
-		</view>
+		</view> -->
 		<view class="cu-bar bg-white margin-top-xs">
 			<view class="action sub-title">
 				<text class="text-xl text-bold text-blue text-shadow">商业项目</text>
@@ -111,23 +119,64 @@
 			return {
 				tip:"欢迎访问",
 				duration:1,
-				
+				listBar:[
+					'通知消息'
+				],
 				scrollTop: 0,
 				old: {
 					scrollTop: 0
 				},
+				
+				Template:[
+					{
+						title: 'gamecube',
+						name: '我要加入(红十字会员)',
+						color: '',
+						url:'addrequest'
+					},
+					{
+						title: 'gamecube',
+						name: '我要求助(申请救助)',
+						color: '',
+						url:'addrequest'
+					},
+					{
+						title: 'gamecube',
+						name: '我要报名(救护员培训)',
+						color: '',
+						url:'addrequest'
+					},
+					{
+						title: 'gamecube',
+						name: '急救培训报名',
+						color: '',
+						url:'addrequest'
+					},
+					{
+						title: 'gamecube',
+						name: '报名捐献干细胞',
+						color: '',
+						url:'addrequest'
+					},
+					{
+						title: 'gamecube',
+						name: '报名无偿献血',
+						color: '',
+						url:'addrequest'
+					}
+				],
 
 				bannerList: [{
-						imageUrl: 'http://cdn.zhoukaiwen.com/zjx_banner3.png',
+						imageUrl: '../../static/me/banner1.png',
 					}, 
 					{
-						imageUrl: 'http://cdn.zhoukaiwen.com/zjx_banner1.png',
+						imageUrl: '../../static/me/banner2.png',
 					},
 					{
-						imageUrl: 'http://cdn.zhoukaiwen.com/zjx_banner2.png',
+						imageUrl: '../../static/me/banner3.png',
 					},
 					{
-						imageUrl: 'http://cdn.zhoukaiwen.com/zjx_banner.png',
+						imageUrl: '../../static/me/banner4.png',
 					}
 				],
 				categories: [{
@@ -234,6 +283,39 @@
 		white-space: nowrap;
 		padding: 10rpx 0 10rpx 10rpx;
 	}
+	
+	.nav-list {
+		display: flex;
+		flex-wrap: wrap;
+		padding: 0px 40upx 0px;
+		justify-content: space-between;
+	}
+	
+	.nav-li {
+		padding: 30upx;
+		border-radius: 12upx;
+		width: 45%;
+		margin: 0 2.5% 40upx;
+		background-image: url(https://s1.ax1x.com/2020/06/27/NyU04x.png);
+		background-size: cover;
+		background-position: center;
+		position: relative;
+		z-index: 1;
+	}
+	
+	.nav-li::after {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		background-color: inherit;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		bottom: -10%;
+		border-radius: 10upx;
+		opacity: 0.2;
+		transform: scale(0.9, 0.9);
+	}
 
 	/*左右渐变遮罩*/
 	.hide-content-box {
@@ -272,14 +354,35 @@
 		box-shadow: 2px 2px 3px rgba(26, 26, 26, 0.2);
 	}
 
-	.nav-li {
-		padding: 40rpx 30rpx;
-		width: 100%;
-		background-image: url(https://s1.ax1x.com/2020/06/27/NyU04x.png);
-		background-size: cover;
-		background-position: center;
-		position: relative;
-		z-index: 1;
+	// .nav-li {
+	// 	padding: 40rpx 30rpx;
+	// 	width: 100%;
+	// 	background-image: url(https://s1.ax1x.com/2020/06/27/NyU04x.png);
+	// 	background-size: cover;
+	// 	background-position: center;
+	// 	position: relative;
+	// 	z-index: 1;
+	// }
+	
+	.nav-title {
+		font-size: 32upx;
+		font-weight: 300;
+	}
+	
+	.nav-title::first-letter {
+		font-size: 40upx;
+		margin-right: 4upx;
+	}
+	
+	.nav-li text {
+		position: absolute;
+		right: 30upx;
+		top: 30upx;
+		font-size: 52upx;
+		width: 60upx;
+		height: 60upx;
+		text-align: center;
+		line-height: 60upx;
 	}
 
 	.nav-name {
@@ -331,32 +434,32 @@
 	}
 
 	.bg-index1 {
-		background-color: #19CF8A;
+		background-color: #F33F5A;
 		color: #fff;
 	}
-
+	
 	.bg-index2 {
 		background-color: #954FF6;
 		color: #fff;
 	}
-
+	
 	.bg-index3 {
 		background-color: #5177EE;
 		color: #fff;
 	}
-
+	
 	.bg-index4 {
-		background-color: #F49A02;
+		background-color: #FFC32E;
 		color: #fff;
 	}
-
+	
 	.bg-index5 {
 		background-color: #FF4F94;
 		color: #fff;
 	}
-
+	
 	.bg-index6 {
-		background-color: #7FD02B;
+		background-color: #0acffe;
 		color: #fff;
 	}
 

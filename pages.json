@@ -93,8 +93,23 @@
 			"style": {
 				"navigationStyle": "custom"
 			}
+		},
+		{
+			"path": "pages/addrequest",
+			"style": {
+				"navigationStyle": "custom"
+			}
 		}
-	],
+	    ,{
+            "path" : "pages/addrequest/addrequest",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"subPackages": [{
 		"root": "tn_components",
 		"pages": [{
