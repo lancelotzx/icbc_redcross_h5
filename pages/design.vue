@@ -1,50 +1,51 @@
 <template>
 	<view class="wrap">
-		<cu-custom bgColor="bg-gradual-blue" :isBack="true">
+		<cu-custom bgColor="bg-gradual-red" :isBack="true">
 			<block slot="backText">返回</block>
-			<block slot="content">{{pageName}}</block>
+			<block slot="content">募捐项目列表</block>
 		</cu-custom>
 		
 		<u-notice-bar mode="horizontal" type="primary" :list="listBar"></u-notice-bar>
 		
 		<u-waterfall v-model="flowList" ref="uWaterfall">
 			<template v-slot:left="{leftList}">
-				<view class="demo-warter" v-for="(item, index) in leftList" :key="index" @click="seeImg(item.image)">
+				<view class="demo-warter" v-for="(item, index) in leftList" :key="index" @click="">
 					<!-- 警告：微信小程序中需要hx2.8.11版本才支持在template中结合其他组件，比如下方的lazy-load组件 -->
 					<u-lazy-load threshold="-450" border-radius="10" :image="item.image" :index="index"></u-lazy-load>
 					<view class="demo-title">
-						{{item.title}}
+						募捐项目
 					</view>
 					<view class="demo-tag">
 						<view class="demo-tag-owner">
-							版权保护
+							项目名称
 						</view>
 						<view class="demo-tag-text">
-							{{item.type}}
+							项目介绍
 						</view>
 					</view>
 					<view class="demo-shop">
-						作品来源：{{item.shop}}
+						项目来源
 					</view>
 					<!-- <u-icon name="close-circle-fill" color="#fa3534" size="34" class="u-close" @click="remove(item.id)"></u-icon> -->
 				</view>
 			</template>
 			<template v-slot:right="{rightList}">
-				<view class="demo-warter" v-for="(item, index) in rightList" :key="index" @click="seeImg(item.image)">
-					<u-lazy-load threshold="-450" border-radius="10" :image="item.image" :index="index"></u-lazy-load>
+				<view class="demo-warter" v-for="(item, index) in rightList" :key="index" @click="">
+					<!-- 警告：微信小程序中需要hx2.8.11版本才支持在template中结合其他组件，比如下方的lazy-load组件 -->
+					<u-lazy-load threshold="-450" border-radius="10" image="" :index="index"></u-lazy-load>
 					<view class="demo-title">
-						{{item.title}}
+						募捐项目
 					</view>
 					<view class="demo-tag">
 						<view class="demo-tag-owner">
-							版权保护
+							项目名称
 						</view>
 						<view class="demo-tag-text">
-							{{item.type}}
+							项目介绍
 						</view>
 					</view>
 					<view class="demo-shop">
-						作品来源：{{item.shop}}
+						项目来源
 					</view>
 					<!-- <u-icon name="close-circle-fill" color="#fa3534" size="34" class="u-close" @click="remove(item.id)"></u-icon> -->
 				</view>
@@ -61,7 +62,7 @@
 			return {
 				pageName:'全部设计',
 				listBar:[
-					'APP/PC端设计图均有实体项目，如有需要请联系作者。注：Logo模版均有版权保护，请勿盗用，违者必究！'
+					'通知信息'
 				],
 				loadStatus: 'loadmore',
 				flowList: [],

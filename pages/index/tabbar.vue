@@ -16,17 +16,17 @@
 					<view :class="PageCur=='index'?'color_main':'text-gray'">首页</view>
 				</view>
 
-				<view class="action" @click="NavChange" data-cur="search">
+				<view class="action" @click="" data-cur="search">
 					<view class='cuIcon-cu-image'>
 						<image v-if="PageCur=='search'" src="../../static/tabBar/shop_cur.png"></image>
 						<image v-if="PageCur != 'search'" src="../../static/tabBar/shop.png"></image>
 					</view>
-					<view :class="PageCur=='search'?'color_main':'text-gray'">技术栈</view>
+					<view :class="PageCur=='search'?'color_main':'text-gray'">专题</view>
 				</view>
 
 				<view @click="NavChange" class="action text-gray add-action" data-cur="cases">
-					<image class="logo_btn" mode="widthFix" src="../../static/logo.png"></image>
-					<view :class="PageCur=='cases'?'color_main':'text-gray'">组件模板</view>
+					<image class="logo_btn" mode="widthFix" src="../../static/logo1.png"></image>
+					<view :class="PageCur=='cases'?'color_main':'text-gray'">我要捐赠</view>
 				</view>
 
 				<view class="action" @click="NavChange" data-cur="news">
@@ -35,7 +35,7 @@
 						<image v-if="PageCur=='news'" src="../../static/tabBar/order_cur.png"></image>
 						<image v-if="PageCur != 'news'" src="../../static/tabBar/order.png"></image>
 					</view>
-					<view :class="PageCur=='news'?'color_main':'text-gray'">文章资讯</view>
+					<view :class="PageCur=='news'?'color_main':'text-gray'">资讯</view>
 				</view>
 
 				<view class="action" @click="NavChange" data-cur="me">
@@ -44,7 +44,7 @@
 						<image v-if="PageCur=='me'" src="../../static/tabBar/me_cur.png"></image>
 						<image v-if="PageCur != 'me'" src="../../static/tabBar/me.png"></image>
 					</view>
-					<view :class="PageCur=='me'?'color_main':'text-gray'">个人中心</view>
+					<view :class="PageCur=='me'?'color_main':'text-gray'">统计中心</view>
 				</view>
 
 			</view>
@@ -71,7 +71,7 @@
 			return {
 				PageCur: 'index',
 
-				message: '2',
+				message: '1',
 				openId:'',
 				access_token:'',
 				

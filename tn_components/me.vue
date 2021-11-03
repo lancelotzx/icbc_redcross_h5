@@ -64,57 +64,101 @@
 				</view>
 			</view>
 
+			<view class="cu-bar bg-white margin-top-xs">
+				<view class="action sub-title">
+					<text class="text-xl text-bold text-blue text-shadow">一周捐赠统计</text>
+					<text class="text-ABC text-blue">LineCharts</text>
+				</view>
+			</view>
+			<view class="chartsMain">
+				<canvas canvas-id="canvasArea" id="canvasArea" class="charts" @touchstart="touchArea"></canvas>
+			</view>
 			
+			<view class="cu-bar bg-white margin-top-xs">
+				<view class="action sub-title">
+					<text class="text-xl text-bold text-blue text-shadow">捐赠项目比例</text>
+					<text class="text-ABC text-blue">ringCharts</text>
+				</view>
+			</view>
+			<view class="chartsMain">
+				<canvas canvas-id="canvasRing" id="canvasRing" class="charts" @touchstart="touchRing"></canvas>
+			</view>
+
 			<view class="cu-list menu card-menu margin-top-lg margin-bottom-sm shadow-shop bg-white text-black my-radius sm-border">
 				<view class="cu-item" @tap="" data-target="Modal">
 					<view class='content'>
-						<image src='../../static/me/icon/zhuti.png' class='png' mode='aspectFit'></image>
+						<image src='../static/me/icon/zhuti.png' class='png' mode='aspectFit'></image>
 						<text class='text-lg margin-sm'>配置菜单</text>
 					</view>
-					
+					<!-- <view class='action'>
+						<view class="cu-capsule radius">
+							<view class='cu-tag bg-gradual-blue'>
+								<view style="clear: both;"></view>
+							</view>
+							<view class="cu-tag line-blue">
+								{{picName}}
+							</view>
+						</view>
+					</view> -->
 				</view>
-			
+
 				
-			
-				
+
+				<!-- 听歌 -->
+				<!-- <view class="cu-item " bindtap="">
+					<button class='content cu-btn'>
+						<image src='../static/me/icon/youxi.png' class='png' mode='aspectFit'></image>
+						<text class='text-lg margin-sm'>休闲小游戏</text>
+					</button>
+					<view class="action">
+						<view class="cu-avatar-group">
+							<view class="cu-avatar round sm" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg);"></view>
+							<view class="cu-avatar round sm" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big81005.jpg);"></view>
+							<view class="cu-avatar round sm" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big25002.jpg);"></view>
+							<view class="cu-avatar round sm" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big91012.jpg);"></view>
+						</view>
+						<text class="text-grey text-sm">共4款</text>
+					</view>
+				</view> -->
+
 				<view class="cu-item">
 					<button class='content cu-btn' open-type="share">
-						<image src='../../static/me/icon/lvhang.png' class='png' mode='aspectFit'></image>
+						<image src='../static/me/icon/lvhang.png' class='png' mode='aspectFit'></image>
 						<text class='text-lg margin-sm'>系统配置二</text>
 					</button>
 				</view>
-			
+
 			</view>
-			
+
 			<view class="cu-list menu card-menu margin-top-lg margin-bottom-lg shadow-shop bg-white text-black my-radius sm-border">
-			
+
 				<view class="cu-item ">
 					<button class='content cu-btn' @click="">
-						<image src='../../static/me/icon/jisuanqi.png' class='png' mode='aspectFit'></image>
+						<image src='../static/me/icon/jisuanqi.png' class='png' mode='aspectFit'></image>
 						<text class='text-lg margin-sm'>用户信息</text>
 					</button>
 				</view>
 				<view class="cu-item " @click="">
 					<button class='content cu-btn'>
-						<image src='../../static/me/icon/youjian.png' class='png' mode='aspectFit'></image>
+						<image src='../static/me/icon/youjian.png' class='png' mode='aspectFit'></image>
 						<text class='text-lg margin-sm'>修改密码</text>
 					</button>
 				</view>
-			
+
 				
-			
+
 				<view class="cu-item" @click="" data-number="">
 					<view class='content'>
-						<image src='../../static/me/icon/dengta.png' class='png' mode='aspectFit'></image>
+						<image src='../static/me/icon/dengta.png' class='png' mode='aspectFit'></image>
 						<text class='text-lg margin-sm'>技术支持</text>
 					</view>
 					
 				</view>
-			
+
 				
 				<view class="cu-item">
 					<button class='content cu-btn' @click="">
-						<image src='../../static/me/icon/xiaoxi.png' class='png' mode='aspectFit'></image>
+						<image src='../static/me/icon/xiaoxi.png' class='png' mode='aspectFit'></image>
 						<text class='text-lg margin-sm'>关于</text>
 					</button>
 				</view>
@@ -139,6 +183,7 @@
 	var canvaWord = null;
 	
 	export default {
+		name: 'me',
 		data() {
 			return {
 				cWidth: '',
@@ -166,38 +211,41 @@
 				},
 				// 折线图
 				Area: {
-					categories: ['6月', '7月', '8月', '9月', '10月', '11月', '12月'],
-					series: [{
-						name: '学习前端',
-						data: [100, 80, 95, 150, 112, 132, 151],
-						color: '#facc14'
-					}, {
-						name: '学习后台',
+					categories: ['1日', '2日', '3日', '4日', '5日', '6日', '7日'],
+					 series: [{
+					// 	name: '捐款金额',
+					// 	data: [100, 80, 95, 150, 112, 132, 151],
+					// 	color: '#facc14'
+					// }, 
+					
+						name: '在线捐款金额',
 						data: [70, 40, 65, 100, 44, 68, 78],
 						color: '#2fc25b'
-					}, {
-						name: '学习设计',
-						data: [35, 20, 25, 37, 4, 20, 39],
-						color: '#1890ff'
-					}]
+					},
+					// , {
+					// 	name: '学习设计',
+					// 	data: [35, 20, 25, 37, 4, 20, 39],
+					// 	color: '#1890ff'
+					// },
+					]
 				},
 				
 				// 圆环图
 				"Ring": {
 					"series": [{
-						"name": "一班",
+						"name": "捐赠项目一",
 						"data": 50
 					}, {
-						"name": "二班",
+						"name": "捐赠项目二",
 						"data": 30
 					}, {
-						"name": "三班",
+						"name": "捐赠项目三",
 						"data": 20
 					}, {
-						"name": "四班",
+						"name": "捐赠项目四",
 						"data": 18
 					}, {
-						"name": "五班",
+						"name": "捐赠项目五",
 						"data": 8
 					}]
 				},
@@ -327,6 +375,31 @@
 					}
 				});
 			},
+			// 圆环图
+			showRing(canvasId, chartData) {
+				canvaRing = new uCharts({
+					$this: _self,
+					canvasId: canvasId,
+					type: 'ring',
+					fontSize: 11,
+					legend: true,
+					extra: {
+						pie: {
+							offsetAngle: -45,
+							ringWidth: 30 * _self.pixelRatio,
+							lableWidth: 15
+						}
+					},
+					background: '#FFFFFF',
+					pixelRatio: _self.pixelRatio,
+					series: _self.Ring.series,
+					animation: true,
+					width: _self.cWidth * _self.pixelRatio,
+					height: _self.cHeight * _self.pixelRatio,
+					disablePieStroke: true,
+					dataLabel: true,
+				});
+			},
 			touchRing(e) {
 				canvaRing.showToolTip(e, {
 					format: function(item) {
@@ -334,6 +407,7 @@
 					}
 				});
 			},
+			
 			getServerData() {
 				_self.showArea("canvasArea", this.chartData);
 				_self.showRing("canvasRing", this.Ring);
@@ -612,7 +686,7 @@
 		border-radius: 12upx;
 		width: 45%;
 		margin: 0 2.5% 40upx;
-		background-image: url(../../static/me/NyU04x.png);
+		background-image: url(../static/me/NyU04x.png);
 		background-size: cover;
 		background-position: center;
 		position: relative;

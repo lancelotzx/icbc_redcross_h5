@@ -40,7 +40,7 @@
 		<view class="cu-bar bg-white margin-top-xs">
 			<view class="action sub-title">
 				<text class="text-xl text-bold text-red text-shadow">网上办事</text>
-				<text class="text-ABC text-blue">curriculum</text>
+				<text class="text-ABC text-red">business</text>
 			</view>
 			<view class="action">
 				<text class="text-lg text-grey text-shadow">更多</text>
@@ -70,15 +70,48 @@
 		</view> -->
 		<view class="cu-bar bg-white margin-top-xs">
 			<view class="action sub-title">
-				<text class="text-xl text-bold text-blue text-shadow">商业项目</text>
-				<text class="text-ABC text-blue">curriculum</text>
+				<text class="text-xl text-bold text-red text-shadow">公开公示</text>
+				<text class="text-ABC text-red">Notice</text>
 			</view>
-			<view class="action" @click="goProjectList">
+			<view class="action" @click="">
 				<text class="text-lg text-grey text-shadow">更多</text>
 			</view>
 		</view>
 
-		<view class="cu-card case no-card">
+		<view class="cu-card article no-card">
+			<view class="cu-item shadow borderBottom" @click="goNews">
+				<view class="title"><view class="text-cut">2020年茂名市红十字会部门决算</view></view>
+				<view class="content">
+					<image src=""
+					 mode="aspectFill"></image>
+					<view class="desc">
+						<view class="text-content">2020年茂名市红十字会部门决算</view>
+						
+					</view>
+				</view>
+			</view>
+		</view>
+		
+		<view class="cu-card article no-card">
+			<view class="cu-item shadow borderBottom" @click="goNews">
+				<view class="title"><view class="text-cut">茂名市红十字会2020年“三公”经费支出决算</view></view>
+				<view class="content">
+					<image src=""
+					 mode="aspectFill"></image>
+					<view class="desc">
+						<view class="text-content">一般公共预算财政拨款“三公”经费支出预算</view>
+						<view class="margin-top-xs">
+							<view class="text-gray light sm round fl">2020年11月03日</view>
+							<view class="text-gray light sm round fr">
+								<text class="text-gray cuIcon-mark" style="font-size: 34rpx;"></text>
+								<text></text>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<!-- <view class="cu-card case no-card">
 
 			<view @click="goProject" class="cu-item shadow" v-for="(item, index) in projectList" :key="index">
 				<view class="image">
@@ -102,7 +135,7 @@
 					</view>
 				</view>
 			</view>
-		</view>
+		</view> -->
 
 		<view style="height: 140rpx;width: 1rpx;"></view>
 	</view>

@@ -1,46 +1,81 @@
 <template>
 	<view class="components-home">
-		<view style="margin-top:-50rpx;height: 486rpx;">
-			<image src='https://s1.ax1x.com/2020/09/16/wccQQP.png' mode='widthFix' class='png' style='width:100%;height:486rpx'></image>
-		</view>
+		<cu-custom bgColor="bg-white" bgImage="../../static/me/logo-1.png" :isBack="false">
+			<!-- <block slot="backText">返回</block> -->
+			<block slot="content"></block>
+		</cu-custom>
 		
 		<view class="title-header">
 			<view class="title-text">
-				设 / 计 / 模 / 版
+				募捐项目
 			</view>
 		</view>
 		
-		<view class='nav-list margin-top'>
-			<navigator open-type="navigate" hover-class='none' :url="'../design?type=' + index" :class="'nav-li bg-index' + (index+1)"
-			 v-for="(item, index) in Template" :key="index">
-				<view class="nav-name">{{item.name}}</view>
-			</navigator>
-		</view>
-
-		<view class="title-header">
-			<view class="title-text">
-				酷 / 炫 / 组 / 件
+		<template v-slot:left="{leftList}">
+			<view class="demo-warter" v-for="(item, index) in leftList" :key="index" @click="">
+				<!-- 警告：微信小程序中需要hx2.8.11版本才支持在template中结合其他组件，比如下方的lazy-load组件 -->
+				<u-lazy-load threshold="-450" border-radius="10"  :index="index"></u-lazy-load>
+				<view class="demo-title">
+					募捐项目
+				</view>
+				<view class="demo-tag">
+					<view class="demo-tag-owner">
+						项目名称
+					</view>
+					<view class="demo-shop">
+						项目介绍
+					</view>
+				</view>
+				<view class="demo-shop">
+					项目来源
+				</view>
+				<!-- <u-icon name="close-circle-fill" color="#fa3534" size="34" class="u-close" @click="remove(item.id)"></u-icon> -->
 			</view>
-		</view>
-
-		<view class='nav-list margin-top'>
-			<navigator open-type="navigate" hover-class='none' :url="'/tn_components/' + item.title" :class="'nav-li bg-kuxuan' + (index+1)"
-			 v-for="(item, index) in kuxuan" :key="index">
-				<view class="nav-name">{{item.name}}</view>
-			</navigator>
-		</view>
-
-		<view class="title-header">
-			<view class="title-text">
-				样 / 式 / 组 / 件
+		</template>
+		<template v-slot:right="{rightList}">
+			<view class="demo-warter" v-for="(item, index) in rightList" :key="index" @click="">
+				<!-- 警告：微信小程序中需要hx2.8.11版本才支持在template中结合其他组件，比如下方的lazy-load组件 -->
+				<u-lazy-load threshold="-450" border-radius="10" image="" :index="index"></u-lazy-load>
+				<view class="demo-title">
+					募捐项目
+				</view>
+				<view class="demo-tag">
+					<view class="demo-tag-owner">
+						项目名称
+					</view>
+					<view class="demo-tag-text">
+						项目介绍
+					</view>
+				</view>
+				<view class="demo-shop">
+					项目来源
+				</view>
+				<!-- <u-icon name="close-circle-fill" color="#fa3534" size="34" class="u-close" @click="remove(item.id)"></u-icon> -->
 			</view>
-		</view>
+		</template>
+
+		
 
 		<view class='nav-list margin-top'>
-			<navigator open-type="navigate" hover-class='none' :url="'/tn_components/' + item.title" :class="'nav-li bg-exper' + (index+1)"
-			 v-for="(item, index) in yangshi" :key="index">
-				<view class="nav-name">{{item.name}}</view>
-			</navigator>
+			<view class="demo-warter" v-for="(item, index) in rightList" :key="index" @click="">
+				<!-- 警告：微信小程序中需要hx2.8.11版本才支持在template中结合其他组件，比如下方的lazy-load组件 -->
+				<u-lazy-load threshold="-450" border-radius="10" :image="item.src" :index="index"></u-lazy-load>
+				<view class="demo-title">
+					募捐项目
+				</view>
+				<view class="demo-tag">
+					<view class="demo-tag-owner">
+						项目名称
+					</view>
+					<view class="demo-tag-text">
+						项目介绍
+					</view>
+				</view>
+				<view class="demo-shop">
+					项目来源
+				</view>
+				<!-- <u-icon name="close-circle-fill" color="#fa3534" size="34" class="u-close" @click="remove(item.id)"></u-icon> -->
+			</view>
 		</view>
 		
 		<view style="height: 120rpx;width: 1rpx;"></view>
@@ -52,6 +87,18 @@
 		name: 'Components',
 		data() {
 			return {
+				rightList: [{
+					src:"https://nwzimg.wezhan.cn/contents/sitefiles2040/10204453/images/20330649.png",
+				},{
+					src:"https://nwzimg.wezhan.cn/contents/sitefiles2040/10204453/images/20330649.png",
+					
+				},{
+					src:"https://nwzimg.wezhan.cn/contents/sitefiles2040/10204453/images/20330649.png",
+					
+				},{
+					src:"https://nwzimg.wezhan.cn/contents/sitefiles2040/10204453/images/20330649.png",
+					
+				}],
 				Template:[
 					{
 						title: 'gamecube',
@@ -155,6 +202,58 @@
 </script>
 
 <style>
+	.demo-warter {
+		border-radius: 8px;
+		margin: 10px 5px;
+		background-color: #ffffff;
+		padding: 8px;
+		position: relative;
+	}
+	.demo-image {
+		width: 100%;
+		border-radius: 4px;
+	}
+	
+	.demo-title {
+		font-size: 30rpx;
+		margin-top: 5px;
+		color: $u-main-color;
+	}
+	
+	.demo-tag {
+		display: flex;
+		margin-top: 5px;
+	}
+	
+	.demo-tag-owner {
+		background-color: $u-type-primary;
+		color: #FFFFFF;
+		display: flex;
+		align-items: center;
+		padding: 4rpx 14rpx;
+		border-radius: 50rpx;
+		font-size: 20rpx;
+		line-height: 1;
+	}
+	
+	.demo-tag-text {
+		border: 1px solid $u-type-primary;
+		color: $u-type-primary;
+		margin-left: 10px;
+		border-radius: 50rpx;
+		line-height: 1;
+		padding: 4rpx 14rpx;
+		display: flex;
+		align-items: center;
+		border-radius: 50rpx;
+		font-size: 20rpx;
+	}
+	
+	.demo-shop {
+		font-size: 22rpx;
+		color: $u-tips-color;
+		margin-top: 5px;
+	}
 	.bg-top-blue {
 		background-image: linear-gradient(135deg, #52B5FC, #746BFE);
 		color: #fff;
