@@ -1,6 +1,6 @@
 <template>
 	<view class="components-home">
-		<cu-custom bgColor="bg-white" bgImage="../../static/me/logo-1.png" :isBack="false">
+		<cu-custom bgColor="bg-white" :bgImage="img" :isBack="false">
 			<!-- <block slot="backText">返回</block> -->
 			<block slot="content"></block>
 		</cu-custom>
@@ -87,6 +87,8 @@
 		name: 'Components',
 		data() {
 			return {
+				img:require("../../static/me/logo-1.png"),
+				
 				rightList: [{
 					src:"https://nwzimg.wezhan.cn/contents/sitefiles2040/10204453/images/20330649.png",
 				},{
