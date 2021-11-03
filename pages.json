@@ -6,7 +6,7 @@
 		{
 			"path": "pages/index/tabbar",
 			"style": {
-				"navigationBarTitleText": "宅家学IT",
+				"navigationBarTitleText": "茂名市红十字会",
 				"navigationStyle": "custom"
 			}
 		},
